@@ -1,5 +1,6 @@
+import http from 'k6/http';
 export const TEST_CONFIG ={
-    vus:10,
-    duration: '20s',
+    vus:5,
+    duration: '10s',
     sleepTime: 1
 };

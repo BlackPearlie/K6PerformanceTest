@@ -1,7 +1,7 @@
 
 import http from 'k6/http';
 import { URLS } from '../config/urls.js';
-im
+import { check } from 'k6';
 export function loginRequest(payload)
 {
     const url = URLS.login;

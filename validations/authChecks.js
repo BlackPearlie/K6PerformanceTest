@@ -1,0 +1,17 @@
+import { check } from "k6";
+
+export function validateLoginResponse(response){
+   return check(response, 
+    {
+        'Status is 200': (response) => response.status === 200,
+        'Body not empty': (response) => response.body.length > 0,
+    });
+}
+
+export function validateProfileResponse(response){
+    return check(response, 
+     {
+         'Status is 200': (response) => response.status === 200,
+         'Body not empty': (response) => response.body.length > 0,
+     });
+ }

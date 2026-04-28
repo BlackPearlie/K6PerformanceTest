@@ -1,6 +1,8 @@
 export const PAYLOADS = {
     login: {
-        "email":"mpho@hotmail.com",
+        "email":"Test2a@hotmail.com",
         "password":"Secure@Pass123"
     }
+
+  
 }
