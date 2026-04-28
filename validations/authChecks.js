@@ -15,3 +15,11 @@ export function validateProfileResponse(response){
          'Body not empty': (response) => response.body.length > 0,
      });
  }
+
+export function validateTestimonialResponse(response){
+    return check(response, 
+     {
+         'Status is 200': (response) => response.status === 201,
+         'Body not empty': (response) => response.body.length > 0,
+     });
+ }
