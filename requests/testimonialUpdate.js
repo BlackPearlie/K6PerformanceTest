@@ -2,15 +2,15 @@ import http from 'k6/http';
 import { URLS } from '../config/urls.js';
 import { check } from 'k6'
 
-export function testimonialRequest(token, payload){
-   const url = URLS.testimonial;
+export function testimonialUpdateRequest(token, payload, testimonialID){
+   const url = `${URLS.testimonial}/${testimonialID}`;
+    
    const params = {
         headers: {
             'Authorization': `Bearer ${token}`
         }
 
     };
-    return http.post(url, JSON.stringify(payload), params);
 
+    return http.put(url, JSON.stringify(payload), params);
 }
-

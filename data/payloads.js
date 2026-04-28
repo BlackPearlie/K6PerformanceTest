@@ -9,6 +9,11 @@ export const PAYLOADS = {
         "content": "Learners benefit from live, interactive sessions with experienced instructors, fostering a supportive learning environment.",
         "rating": 5,
         "isPublic": true
-    }
+    },
 
+    testimonialUpdate:{
+    "title": "So grateful for this OPPORTUNITY",
+    "content": "hAPPY TO BE PART OF THIS PLATFORM",
+    "rating": 4
+    }
 };

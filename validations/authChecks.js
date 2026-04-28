@@ -19,7 +19,15 @@ export function validateProfileResponse(response){
 export function validateTestimonialResponse(response){
     return check(response, 
      {
-         'Status is 200': (response) => response.status === 201,
+         'Status is 201': (response) => response.status === 201,
          'Body not empty': (response) => response.body.length > 0,
      });
  }
+
+ export function validateUpdateTestimonialResponse(response){
+    return check(response, 
+     {
+         'Status is 200': (response) => response.status === 200,
+         'Body not empty': (response) => response.body.length > 0,
+     });
+ }  

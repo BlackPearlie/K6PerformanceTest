@@ -7,6 +7,9 @@ import { getProfileRequest } from "../requests/getProfileRequest.js";
 import { validateProfileResponse } from "../validations/authChecks.js";
 import { testimonialRequest } from "../requests/testimonialRequest.js";
 import { validateTestimonialResponse } from "../validations/authChecks.js";
+import { testimonialUpdateRequest } from "../requests/testimonialUpdate.js";
+import { validateUpdateTestimonialResponse } from "../validations/authChecks.js";
+
 import { sleep } from "k6";
 
 export const options ={
@@ -37,7 +40,13 @@ export default function testProfile(){
     console.log('TESTIMONIAL response body: ', testimonialResponse.body);
     validateTestimonialResponse(testimonialResponse);
 
-
+    //UPDATE TESTIMONIAL
+    const testimonialResponseID = testimonialResponse.json().data.Id; //get testimonial ID from response body
+    console.log('TESTIMONIAL ID: ', testimonialResponseID);
+    const updateTestimonialResponse = testimonialUpdateRequest(token, PAYLOADS.testimonialUpdate, testimonialResponseID);
+    console.log('UPDATE testimonial response status: ', updateTestimonialResponse.status);
+    console.log('UPDATE testimonial response body: ', updateTestimonialResponse.body);
+    validateUpdateTestimonialResponse(updateTestimonialResponse);
     sleep(TEST_CONFIG.sleepTime);
 
 
