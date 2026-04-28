@@ -9,6 +9,8 @@ import { testimonialRequest } from "../requests/testimonialRequest.js";
 import { validateTestimonialResponse } from "../validations/authChecks.js";
 import { testimonialUpdateRequest } from "../requests/testimonialUpdate.js";
 import { validateUpdateTestimonialResponse } from "../validations/authChecks.js";
+import { deleteTestimonialRequest } from "../requests/deleteTestimonial.js";
+import { validateDeleteTestimonialResponse } from "../validations/authChecks.js";
 
 import { sleep } from "k6";
 
@@ -47,7 +49,18 @@ export default function testProfile(){
     console.log('UPDATE testimonial response status: ', updateTestimonialResponse.status);
     console.log('UPDATE testimonial response body: ', updateTestimonialResponse.body);
     validateUpdateTestimonialResponse(updateTestimonialResponse);
+
+    //delete testimonial
+
+    const deleteTestimonialResponse = deleteTestimonialRequest(token, testimonialResponseID);
+    console.log('DELETE testimonial response status: ', deleteTestimonialResponse.status);
+    console.log('DELETE testimonial response body: ', deleteTestimonialResponse.body);
+    validateDeleteTestimonialResponse(deleteTestimonialResponse);
+
+
     sleep(TEST_CONFIG.sleepTime);
+
+
 
 
 

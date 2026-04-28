@@ -31,3 +31,11 @@ export function validateTestimonialResponse(response){
          'Body not empty': (response) => response.body.length > 0,
      });
  }  
+
+ export function validateDeleteTestimonialResponse(response){
+    return check(response, 
+     {
+         'Status is 200': (response) => response.status === 200,
+         'Body not empty': (response) => response.body.length > 0,
+     });
+ }  
